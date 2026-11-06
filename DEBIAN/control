@@ -1,0 +1,8 @@
+Package: yt-downloader
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-gi, gir1.2-gtk-3.0, python3-pip, ffmpeg, at-spi2-core
+Maintainer: Volkan Ozdemir <bilgi@volkan-ozdemir.com.tr>
+Description: Accessible YouTube channel and playlist media downloader built with GTK 3.
