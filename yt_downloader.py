@@ -112,6 +112,14 @@ class MediaDownloaderApp(Gtk.Window):
         ydl_opts = {
             'progress_hooks': [self.progress_hook],
             'ignoreerrors': True,
+            'nocheckcertificate': True,
+            'quiet': False,
+            'no_warnings': False,
+            'extractor_args': {
+                'youtube': {
+                    'player_client': ['android', 'web']
+                }
+            }
         }
 
         if target_type == "single":
@@ -130,7 +138,7 @@ class MediaDownloaderApp(Gtk.Window):
                 'preferredquality': '192',
             }]
         else:
-            ydl_opts['format'] = 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+            ydl_opts['format'] = 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/best'
 
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
